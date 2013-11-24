@@ -1,0 +1,31 @@
+{% autoescape true %}
+<h1 id="title">Create WOD</h1>
+
+<div id="results">
+  <form action="/admin/createwod" method="post" role="form">
+      <div class="form-group">
+          <label for="wodName">Wod Name</label>
+          <input type="text" class="form-control" name="wodName" />
+      </div>
+
+
+      <div class="form-group">
+          <label >Wod Type</label>
+          <div class="form-control">
+          <label class="radio-inline">
+              <input type="radio" name="type" value="timed" checked> Timed
+          </label>
+          <label class="radio-inline">
+              <input type="radio" name="type" value="amrap"> AMRAP
+          </label>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" name="description" ></textarea>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+{% endautoescape %}
