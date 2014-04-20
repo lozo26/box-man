@@ -1,0 +1,18 @@
+* Work on app flow and UI
+    * What should be on main page?
+    * How to get to judge's page?
+        *  Login just on those pages?
+    * Is the score input form okay?
+        * Could I make it more efficient?
+        * Maybe more drop downs?
+        * How to redirect after save?
+    * Edit scores?
+
+
+* Move from dict base data store to DB
+    * Is the current data hierarchy okay?
+        * Wod root of tree?
+        * How to make sure no athletes get mistakenly added instead of updating existing
+        * Can I make a leader board easily?
+
+* Make a leader board

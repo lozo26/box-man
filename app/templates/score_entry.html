@@ -1,0 +1,24 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Athlete</th>
+            {% for name in wodNames %}
+            <th>{{ name }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in score_tbl %}
+        <tr>
+            <td>{{ row[0].athlete.get().name}}</td>
+            {% for score in row %}
+            <td>
+                <a href="#" data-name="score" title="Value" data-pk="{{score.key.urlsafe()}}" 
+                    class="editable-score editable-click">{{score.value}}</a>
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+

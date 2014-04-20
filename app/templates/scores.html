@@ -1,0 +1,19 @@
+<h1 id="title" class="text-center">Scores</h1>
+
+<div id="results">
+    <div class="form-group">
+        <label for="division">Division</label>
+        <select id="div-sel" class="form-control" name="division" >
+            <option value="">-Select One-</option>
+            {% for division in divisions %}
+            <option value="{{uri_for('get-leaders', div_key=division.key.urlsafe())}}">{{division.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div id="score-table" class="table-responsive">
+        {% if sel_division %}
+        {% include 'leaders.html' %}
+        {% endif %}
+    </div>
+</div>
+

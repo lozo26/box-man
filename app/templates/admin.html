@@ -44,9 +44,9 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-              <li><a href="/admin/createwod">Wod</a></li>
-              <li><a href="/admin/createathlete">Athlete</a></li>
-              <li><a href="/admin/createscore">Score</a></li>
+              <li><a href="{{ uri_for('show-athletes') }}">Athletes</a></li>
+              <li><a href="{{ uri_for('show-divisions') }}">Divisions</a></li>
+              <li><a href="{{ uri_for('edit-scores') }}">Scoring</a></li>
           </ul>
           <ul id="admin-menu" class="nav navbar-nav navbar-right">
               <li><a href="/">Home</a></li>
@@ -58,9 +58,8 @@
           <h1>Duke City Family Fued</h1>
       </div>
 
-    <div class="container">
-        <div id="results">
-        </div>
+    <div id="content" class="container">
+        <div id="results"> </div>
     </div>
 
 

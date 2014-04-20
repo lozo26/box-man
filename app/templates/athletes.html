@@ -1,0 +1,35 @@
+{% autoescape true %}
+<h1 id="title" class="text-center">Athletes</h1>
+
+<div id="results">
+    <div class="btn-group">
+        <a class="btn btn-success btn-lg" href="{{ uri_for('create-athlete') }}">
+            <span class="glyphicon glyphicon-plus"></span> Add Athlete
+        </a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>email</th>
+                    <th>age</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for athlete in athletes %}
+                    <tr>
+                        <td>{{ athlete.name }}</td>
+                        <td>{{ athlete.email }}</td>
+                        <td>{{ athlete.age }}</td>
+                        <td><a class="btn btn-primary btn-default btn-sm" href="{{ uri_for('edit-athlete', key=athlete.key.urlsafe()) }}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                        <td><a class="btn btn-primary btn-danger btn-sm" href="{{ uri_for('delete-athlete', key=athlete.key.urlsafe()) }}"><span class="glyphicon glyphicon-remove-circle"></span></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endautoescape %}

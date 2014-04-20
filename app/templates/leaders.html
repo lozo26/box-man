@@ -1,36 +1,21 @@
-{% autoescape true %}
-
-{% if not indexPage %}
-<h1 id="title">Leader Board</h1>
-{% endif %}
-
-<div id="results">
-{% for category in categories %}
-    <br>
-    <h2>{{ category.name }}</h2>
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Score</th>
-                    <th>Points</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for athlete in category.athletes %}
-                    <tr>
-                        <td>{{ athlete.pos }}</td>
-                        <td>{{ athlete.name }}</td>
-                        <td>{{ athlete.score }}</td>
-                        <td>{{ athlete.points }}</td>
-                    </tr>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th> Overall Rank (points) Athlete</th>
+                {% for name in wodNames %}
+                <th>{{ name }}</th>
                 {% endfor %}
-            </tbody>
-        </table>
-    </div>
-{% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in score_tbl %}
+            <tr>
+                {% for score in row %}
+                <td>{{ score.rank }} ({{score.points}}) {{score.athlete.get().name}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
-
-{% endautoescape %}

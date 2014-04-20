@@ -1,0 +1,36 @@
+{% autoescape true %}
+<h1 class="text-center" id="title">{{ 'Edit' if id is defined else 'Create' }} Division</h1>
+
+<div id="results">
+  <form class="ajax-form" action="{{ uri_for('create-division') }}" method="post" role="form">
+      <div class="form-group">
+          <label for="name">Division Name</label>
+          <input type="text" class="form-control" name="name" />
+      </div>
+      <div class="form-group" id="wods">
+          <label for="wod">Wods</label>
+          <div class="form-inline">
+              <div class="form-group">
+                  <label class="sr-only" for="wodname">Wod Name</label>
+                  <input type="text" class="form-control" name="wodname" 
+                      {% if wod is defined %} value="{{wod.name}}" {% else %} placeholder="Wod Name" {% endif %} />
+              </div>
+              <div class="form-group">
+                  <label class="sr-only" for="maxPoints">Max Points</label>
+                  <input type="text" class="form-control" name="maxPoints"
+                      {% if wod is defined %} value="{{wod.maxPoints}}" {% else %} placeholder="Max Points" {% endif %} />
+              </div>
+              <div class="form-group">
+                  <label class="sr-only" for="pointInterval">Point Interval</label>
+                  <input type="text" class="form-control" name="pointInterval"
+                      {% if wod is defined %} value="{{wod.pointInterval}}" {% else %} placeholder="Point Interval" {% endif %} />
+              </div>
+              <button class="btn btn-default" id="add-wod" >
+                <span class="glyphicon glyphicon-plus"></span> Add Wod
+              </button>
+          </div>
+      </div>
+      <button type="submit" class="btn btn-default">Save</button>
+  </form>
+</div>
+{% endautoescape %}

@@ -1,0 +1,34 @@
+{% autoescape true %}
+<h1 id="title" class="text-center">Divisions</h1>
+
+<div id="results">
+    <div class="btn-group">
+        <a class="btn btn-success btn-lg" href="{{ uri_for('create-division') }} ">
+            <span class="glyphicon glyphicon-plus"></span> Add Division
+        </a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Division</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for division in divisions %}
+                    <tr>
+                        <td>{{ division.name }}
+                            <!-- TODO: Add a link to show division detail, wods, athletes, etc. -->
+                        </td>
+                        <td><a class="btn btn-primary btn-default btn-sm" href="{{ uri_for('create-score', div_key=division.key.urlsafe()) }}"><span class="glyphicon glyphicon-thumbs-up"></span> Score</a></td>
+                        <td><a class="btn btn-primary btn-default btn-sm" href="{{ uri_for('edit-division', key=division.key.urlsafe()) }}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                        <td><a class="btn btn-primary btn-danger btn-sm" href="{{ uri_for('delete-division', key=division.key.urlsafe()) }}"><span class="glyphicon glyphicon-remove-circle"></span></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endautoescape %}

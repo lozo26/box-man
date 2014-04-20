@@ -12,6 +12,11 @@ indexes:
 
 - kind: Athlete
   properties:
+  - name: division
+  - name: name
+
+- kind: Athlete
+  properties:
   - name: level
   - name: name
 
@@ -20,6 +25,18 @@ indexes:
   - name: athlete
   - name: wod
   - name: value
+
+- kind: Score
+  ancestor: yes
+  properties:
+  - name: athlete
+  - name: wodName
+
+- kind: Score
+  ancestor: yes
+  properties:
+  - name: wodName
+  - name: rank
 
 - kind: Wod
   ancestor: yes
